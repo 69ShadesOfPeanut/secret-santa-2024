@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://5wvdcrba6idj"]
+
+[ext_resource type="Script" path="res://Scripts/BattleHandler.gd" id="1_m2ge5"]
+
+[node name="BattleGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2ge5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Info" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="YourHealth" type="Label" parent="MarginContainer/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Your monster health:"
+
+[node name="EnemyHealth" type="Label" parent="MarginContainer/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "Enemy monster health:"
+
+[node name="Actions" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Attack" type="Button" parent="MarginContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="Type attack" type="Button" parent="MarginContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type attack"
+
+[node name="Defend" type="Button" parent="MarginContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
+[connection signal="pressed" from="MarginContainer/Actions/Attack" to="." method="PlayerTurn" binds= ["Attack"]]
+[connection signal="pressed" from="MarginContainer/Actions/Type attack" to="." method="PlayerTurn" binds= ["Type attack"]]
+[connection signal="pressed" from="MarginContainer/Actions/Defend" to="." method="PlayerTurn" binds= ["Defend"]]

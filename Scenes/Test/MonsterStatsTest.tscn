@@ -8,14 +8,11 @@ script = ExtResource("2_y5pia")
 MonsterType = "grass"
 Health = 20
 Attack = 8
-Defence = 13
 RandomiseStats = false
 MinHealth = 5
 MaxHealth = 23
 MinAttack = 3
 MaxAttack = 15
-MinDefence = 5
-MaxDefence = 20
 
 [node name="MonsterStatsTest" type="Control"]
 layout_mode = 3
@@ -60,12 +57,6 @@ text = "Place holder text"
 horizontal_alignment = 1
 
 [node name="Attack" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Place holder text"
-horizontal_alignment = 1
-
-[node name="Defence" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Place holder text"

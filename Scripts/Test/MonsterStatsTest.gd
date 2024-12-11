@@ -20,7 +20,6 @@ func SetText() -> void:
 	get_node("ExperienceToLevel").text = "Experience To Level: " + str(Monster.ExperienceLevelUp)
 	get_node("Health").text = "Health: " + str(Monster.Health)
 	get_node("Attack").text = "Attack: " + str(Monster.Attack)
-	get_node("Defence").text = "Defence: " + str(Monster.Defence)
 
 # Func to level up the test monster
 func LevelUpTest() -> void:

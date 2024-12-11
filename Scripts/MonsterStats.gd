@@ -3,6 +3,9 @@
 extends Resource
 class_name MonsterStats
 
+# Extras
+# If the pokemon will be defended next time its attacked
+var Defended = false
 
 # Base stats
 @export_group("Base stats")
@@ -14,11 +17,11 @@ var Experience : int = 0
 var ExperienceLevelUp : int = 100
 
 # Monster type
-@export_enum("fire", "water", "grass") var MonsterType : String
+@export_enum("fire", "water", "grass") var MonsterType : String = "fire"
 
-@export var Health : int
-@export var Attack : int
-@export var Defence : int
+# Stats
+@export var Health : int = 20
+@export var Attack : int = 8
 
 # Stats for if randomise stats is on
 @export_group("RandomStats")
@@ -30,9 +33,6 @@ var ExperienceLevelUp : int = 100
 @export_subgroup("Attack Range")
 @export_range(1, 20) var MinAttack : int
 @export_range(1, 20) var MaxAttack : int
-@export_subgroup("Defence Range")
-@export_range(1, 20) var MinDefence : int
-@export_range(1, 20) var MaxDefence : int
 
 
 # Randomise stats if randomise stat is turned on
@@ -41,7 +41,6 @@ func RandomiseStatsFunction():
 	
 	Health = randi_range(MinHealth, MaxHealth)
 	Attack = randi_range(MinAttack, MaxAttack)
-	Defence = randi_range(MinDefence, MaxDefence)
 
 # Function that adds experience
 func AddXP(XPGiven : int):
