@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_wowgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu60x"]
-size = Vector2(16, 16)
+size = Vector2(16, 6)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_wowgx")
@@ -13,6 +13,7 @@ script = ExtResource("1_wowgx")
 texture = ExtResource("1_nf4pe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_yu60x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
