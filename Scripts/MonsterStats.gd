@@ -12,6 +12,7 @@ var Level : int = 1
 var Experience : int = 0
 # The current experience needed to level up
 var ExperienceLevelUp : int = 100
+
 @export var Health : int
 @export var Attack : int
 @export var Defence : int
