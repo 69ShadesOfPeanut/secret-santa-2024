@@ -12,16 +12,17 @@ class_name MonsterStats
 
 # Stats for if randomise stats is on
 @export_group("RandomStats")
+## Toggle on to have starting stats be random
 @export var RandomiseStats : bool = false
 @export_subgroup("Health Range")
-@export var MinHealth : int
-@export var MaxHealth : int
+@export_range(1, 20) var MinHealth : int
+@export_range(1, 20) var MaxHealth : int
 @export_subgroup("Attack Range")
-@export var MinAttack : int
-@export var MaxAttack : int
+@export_range(1, 20) var MinAttack : int
+@export_range(1, 20) var MaxAttack : int
 @export_subgroup("Defence Range")
-@export var MinDefence : int
-@export var MaxDefence : int
+@export_range(1, 20) var MinDefence : int
+@export_range(1, 20) var MaxDefence : int
 
 
 # Randomise stats if randomise stat is turned on
