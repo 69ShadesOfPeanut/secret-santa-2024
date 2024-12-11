@@ -6,6 +6,12 @@ class_name MonsterStats
 
 # Base stats
 @export_group("Base stats")
+# The level of the monster
+var Level : int = 1
+# The current experience
+var Experience : int = 1
+# The current experience needed to level up
+var ExperienceLevelUp : int = 100
 @export var Health : int
 @export var Attack : int
 @export var Defence : int
