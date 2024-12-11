@@ -9,7 +9,7 @@ class_name MonsterStats
 # The level of the monster
 var Level : int = 1
 # The current experience
-var Experience : int = 1
+var Experience : int = 0
 # The current experience needed to level up
 var ExperienceLevelUp : int = 100
 @export var Health : int
@@ -38,3 +38,16 @@ func RandomiseStatsFunction():
 	Health = randi_range(MinHealth, MaxHealth)
 	Attack = randi_range(MinAttack, MaxAttack)
 	Defence = randi_range(MinDefence, MaxDefence)
+
+# Function that adds experience
+func AddXP(XPGiven : int):
+	Experience += XPGiven
+	print("Current experience is: " + str(Experience))
+	
+	# Checks if current XP is enough to level up
+	if Experience >= ExperienceLevelUp:
+		print("Level up!")
+		Level += 1
+		ExperienceLevelUp += 100
+		Experience = 0
+		print("Current level is: " + str(Level) + "\nCurrent experience to level up is: " + str(ExperienceLevelUp))
