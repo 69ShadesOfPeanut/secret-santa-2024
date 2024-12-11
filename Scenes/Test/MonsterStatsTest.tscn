@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_ckpgo"]
 script = ExtResource("2_y5pia")
+MonsterType = "grass"
 Health = 20
 Attack = 8
 Defence = 13

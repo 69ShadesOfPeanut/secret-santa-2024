@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_jkf2b")
+MonsterType = "fire"
 Health = 20
 Attack = 8
 Defence = 13

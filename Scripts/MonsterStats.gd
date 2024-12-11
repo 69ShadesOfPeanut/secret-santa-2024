@@ -13,6 +13,9 @@ var Experience : int = 0
 # The current experience needed to level up
 var ExperienceLevelUp : int = 100
 
+# Monster type
+@export_enum("fire", "water", "grass") var MonsterType : String
+
 @export var Health : int
 @export var Attack : int
 @export var Defence : int
