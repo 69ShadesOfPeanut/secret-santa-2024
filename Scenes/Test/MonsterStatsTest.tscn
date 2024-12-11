@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://Scripts/Test/MonsterStatsTest.gd" id="1_vy5s6"]
 [ext_resource type="Script" path="res://Scripts/MonsterStats.gd" id="2_y5pia"]
 
-[sub_resource type="Resource" id="Resource_qs2fa"]
+[sub_resource type="Resource" id="Resource_ckpgo"]
 script = ExtResource("2_y5pia")
 Health = 20
 Attack = 8
 Defence = 13
-RandomiseStats = false
-MinHealth = 10
-MaxHealth = 25
-MinAttack = 5
-MaxAttack = 13
+RandomiseStats = true
+MinHealth = 5
+MaxHealth = 23
+MinAttack = 3
+MaxAttack = 15
 MinDefence = 5
-MaxDefence = 18
+MaxDefence = 20
 
 [node name="MonsterStatsTest" type="Control"]
 layout_mode = 3
@@ -32,7 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vy5s6")
-Monster = SubResource("Resource_qs2fa")
+Monster = SubResource("Resource_ckpgo")
 
 [node name="Health" type="Label" parent="VBoxContainer"]
 layout_mode = 2
