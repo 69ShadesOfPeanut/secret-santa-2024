@@ -46,6 +46,7 @@ func AddXP(XPGiven : int):
 	print("Current experience is: " + str(Experience))
 	
 	# Checks if current XP is enough to level up
+	# resets XP back to 0 if so
 	if Experience >= ExperienceLevelUp:
 		print("Level up!")
 		Level += 1
