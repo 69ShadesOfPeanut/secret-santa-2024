@@ -15,6 +15,8 @@ var Level : int = 1
 var Experience : int = 0
 # The current experience needed to level up
 var ExperienceLevelUp : int = 100
+# How many unspent skill points monster has
+var SkillPoints : int = 0
 
 # Monster type
 @export_enum("fire", "water", "grass") var MonsterType : String = "fire"
@@ -52,6 +54,10 @@ func AddXP(XPGiven : int):
 	if Experience >= ExperienceLevelUp:
 		print("Level up!")
 		Level += 1
+		SkillPoints += Level / 2
 		ExperienceLevelUp += 100
 		Experience = 0
 		print("Current level is: " + str(Level) + "\nCurrent experience to level up is: " + str(ExperienceLevelUp))
+		
+		return true
+	return false

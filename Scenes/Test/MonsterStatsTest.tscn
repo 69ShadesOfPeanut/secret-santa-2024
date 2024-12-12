@@ -70,5 +70,10 @@ text = "Randomise stats"
 layout_mode = 2
 text = "Level up"
 
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Force update stats"
+
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer" method="_ready"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer" method="LevelUpTest"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer" method="SetText"]

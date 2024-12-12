@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ces0hd8ocqu4y"]
+
+[ext_resource type="Script" path="res://Scripts/LevelUpGUI.gd" id="1_f7k10"]
+
+[node name="LevelUp" type="Window"]
+title = "Level up!"
+size = Vector2i(192, 100)
+wrap_controls = true
+unresizable = true
+always_on_top = true
+script = ExtResource("1_f7k10")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelUpLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You have just leveled up!"
+
+[node name="HealthButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health"
+
+[node name="AttackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[connection signal="pressed" from="VBoxContainer/HealthButton" to="." method="ButtonPress" binds= ["Health"]]
+[connection signal="pressed" from="VBoxContainer/AttackButton" to="." method="ButtonPress" binds= ["Attack"]]

@@ -4,6 +4,7 @@ extends VBoxContainer
 
 # Vars
 @export var Monster : MonsterStats
+const LevelUpGUI = preload("res://Scenes/LevelUp.tscn")
 
 
 
@@ -23,5 +24,13 @@ func SetText() -> void:
 
 # Func to level up the test monster
 func LevelUpTest() -> void:
-	Monster.AddXP(100)
+	var LevelUp = Monster.AddXP(100)
+	
+	if LevelUp == true:
+		var LevelUpGUIInstance : Window = LevelUpGUI.instantiate()
+		get_parent().add_child(LevelUpGUIInstance)
+		LevelUpGUIInstance.move_to_center()
+		LevelUpGUIInstance.SetUp(Monster)
+	
+	# Update GUI
 	_ready()
