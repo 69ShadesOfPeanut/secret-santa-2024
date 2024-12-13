@@ -15,6 +15,8 @@ var TurnNumber : int = 0
 # Nodes
 @onready var YourHealth : Label = get_node("%YourHealth")
 @onready var EnemyHealth : Label = get_node("%EnemyHealth")
+@onready var DefendedPlayer : Label = get_node("%DefendedPlayer")
+@onready var DefendedEnemy : Label = get_node("%DefendedEnemy")
 
 
 ## Function that prepares scene for battle
@@ -68,6 +70,7 @@ func PlayerTurn(Action : String):
 	# If enemy is defended, disable defence
 	if EnemyMonster.Defended == true:
 		EnemyMonster.Defended = false
+		DefendedEnemy.hide()
 		print("Enemy monster defence now disabled")
 	
 	# Make it the enemy turn
@@ -102,6 +105,7 @@ func EnemyTurn():
 	# If player is defended, disable defence
 	if PlayerMonster.Defended == true:
 		PlayerMonster.Defended = false
+		DefendedPlayer.hide()
 		print("Player monster defence now disabled")
 	
 	DisableButtons()
@@ -117,9 +121,17 @@ func Attack(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats) ->
 	print("Attack action")
 	# Checks if the defending enemy defended
 	if DefendingMonster.Defended == true:
+		print("Defending monster is defended")
 		DefendingMonster.Health -= (AttackingMonster.Attack / 1.5)
 		DefendingMonster.Defended = false
+		
+		# Hide defending monster defended GUI element
+		if DefendingMonster.PlayerMonster == true:
+			DefendedPlayer.hide()
+		else:
+			DefendedEnemy.hide()
 	else:
+		print("Defending monster is not defended")
 		DefendingMonster.Health -= AttackingMonster.Attack
 	
 	print("Defending monster health is now: " + str(DefendingMonster.Health))
@@ -152,3 +164,9 @@ func Defend(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats):
 	print("Defend action")
 	AttackingMonster.Defended = true
 	print("Defending monster defense state: " + str(AttackingMonster.Defended))
+	
+	# Show the defended GUI element
+	if AttackingMonster.PlayerMonster == true:
+		DefendedPlayer.show()
+	else:
+		DefendedEnemy.show()

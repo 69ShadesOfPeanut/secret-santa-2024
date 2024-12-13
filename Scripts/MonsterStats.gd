@@ -17,6 +17,8 @@ var Experience : int = 0
 var ExperienceLevelUp : int = 100
 # How many unspent skill points monster has
 var SkillPoints : int = 0
+# If the monster is the players
+var PlayerMonster : bool = false
 
 # Monster type
 @export_enum("fire", "water", "grass") var MonsterType : String = "fire"

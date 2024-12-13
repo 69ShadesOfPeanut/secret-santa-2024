@@ -23,23 +23,45 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Info" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="YourHealth" type="Label" parent="MarginContainer/Info"]
+[node name="YourHealth" type="Label" parent="MarginContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "Your monster health:"
 
-[node name="EnemyHealth" type="Label" parent="MarginContainer/Info"]
+[node name="EnemyHealth" type="Label" parent="MarginContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 text = "Enemy monster health:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DefendedPlayer" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Player is defended"
+
+[node name="DefendedEnemy" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "Enemy is defended"
 
 [node name="Actions" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true

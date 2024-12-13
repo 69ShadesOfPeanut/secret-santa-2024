@@ -37,6 +37,8 @@ func _ready() -> void:
 	# Attack
 	PlayerMonster.Attack = PlayerAttack
 	EnemyMonster.Attack = EnemyAttack
+	# Set player monster to be owned by player
+	PlayerMonster.PlayerMonster = true
 	
 	# Start battle
 	BattleGUI.SceneSetup(PlayerMonster, EnemyMonster)
