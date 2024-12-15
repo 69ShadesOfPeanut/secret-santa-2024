@@ -12,6 +12,7 @@ var TrainersDefeated : int = 0
 ## Sets the player monster to be owned by the player
 func _ready() -> void:
 	Monster.PlayerMonster = true
+	Monster.MonsterName = "Player"
 
 ## Gets the keys the player is pressing then turns it into directional velocity
 func get_input():

@@ -19,6 +19,8 @@ var ExperienceLevelUp : int = 100
 var SkillPoints : int = 0
 # If the monster is the players
 var PlayerMonster : bool = false
+# The name of the monster (for logging purposes)
+var MonsterName : String = "Enemy"
 
 # Monster type
 @export_enum("fire", "water", "grass") var MonsterType : String = "fire"

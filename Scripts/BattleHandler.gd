@@ -20,6 +20,7 @@ var TurnNumber : int = 0
 @onready var DefendedPlayer : Label = get_node("%DefendedPlayer")
 @onready var DefendedEnemy : Label = get_node("%DefendedEnemy")
 @onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
+@onready var BattleLog : RichTextLabel = get_node("%BattleLog")
 var TrainerNode : Interactable
 
 
@@ -29,6 +30,8 @@ func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : i
 	EnemyMonster = EMonster
 	XPAwarded = Experience
 	TrainerNode = Trainer
+	
+	BattleLog.clear()
 	
 	await UpdateStats()
 
@@ -87,6 +90,7 @@ func PlayerTurn(Action : String):
 	
 	TurnNumber += 1
 	print_rich("[b]PLAYER TURN #" + str(TurnNumber) + "[/b]")
+	BattleLog.append_text("[b]PLAYER TURN #" + str(TurnNumber) + "[/b]\n")
 	print("Player does: " + Action)
 	
 	# Run function based off of what butotn player presses
@@ -118,6 +122,7 @@ func EnemyTurn():
 	
 	DisableButtons()
 	print_rich("[b]ENEMY TURN #" + str(TurnNumber) + "[/b]")
+	BattleLog.append_text("[b]ENEMY TURN #" + str(TurnNumber) + "[/b]\n")
 	
 	# Wait before making turn (so it doesn't instantly pass)
 	await get_tree().create_timer(2.5).timeout
@@ -155,6 +160,7 @@ func Attack(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats) ->
 	if DefendingMonster.Defended == true:
 		print("Defending monster is defended")
 		DefendingMonster.Health -= (AttackingMonster.Attack / 1.5)
+		BattleLog.append_text(AttackingMonster.MonsterName + " hits " + DefendingMonster.MonsterName + " but was defended. Dealt " + str(AttackingMonster.Attack / 1.5) + "\n")
 		DefendingMonster.Defended = false
 		
 		# Hide defending monster defended GUI element
@@ -165,6 +171,9 @@ func Attack(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats) ->
 	else:
 		print("Defending monster is not defended")
 		DefendingMonster.Health -= AttackingMonster.Attack
+		
+		# Log damage
+		BattleLog.append_text(AttackingMonster.MonsterName + " hits " + DefendingMonster.MonsterName + " for " + str(AttackingMonster.Attack) + "\n")
 	
 	print("Defending monster health is now: " + str(DefendingMonster.Health))
 	UpdateStats()
@@ -183,6 +192,7 @@ func TypeAttack(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats
 			Attack(AttackingMonster, DefendingMonster)
 			return
 		DefendingMonster.Health -= (AttackingMonster.Attack * 1.5)
+		BattleLog.append_text(AttackingMonster.MonsterName + " hits " + DefendingMonster.MonsterName + " and was effective! Dealing " + str(AttackingMonster.Attack * 1.5) + "\n")
 	else:
 		print("Type attack fail!\nResorting to regular attack")
 		Attack(AttackingMonster, DefendingMonster)
@@ -196,6 +206,7 @@ func Defend(AttackingMonster : MonsterStats, DefendingMonster : MonsterStats):
 	print("Defend action")
 	AttackingMonster.Defended = true
 	print("Defending monster defense state: " + str(AttackingMonster.Defended))
+	BattleLog.append_text(AttackingMonster.MonsterName + " will be defended next time they are attacked\n")
 	
 	# Show the defended GUI element
 	if AttackingMonster.PlayerMonster == true:
