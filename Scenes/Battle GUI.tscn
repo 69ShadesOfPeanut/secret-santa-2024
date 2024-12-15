@@ -84,6 +84,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Defend"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+enabled = false
+
 [connection signal="pressed" from="MarginContainer/Actions/Attack" to="." method="PlayerTurn" binds= ["Attack"]]
 [connection signal="pressed" from="MarginContainer/Actions/Type attack" to="." method="PlayerTurn" binds= ["Type attack"]]
 [connection signal="pressed" from="MarginContainer/Actions/Defend" to="." method="PlayerTurn" binds= ["Defend"]]

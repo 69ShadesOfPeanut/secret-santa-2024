@@ -21,6 +21,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAACAAAAAAAAAAIAAAABAAA
 tile_set = ExtResource("1_nwaf4")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_1rf44")]
+unique_name_in_owner = true
 position = Vector2(552, 344)
 
 [node name="Minecart" parent="." instance=ExtResource("3_nqa1a")]

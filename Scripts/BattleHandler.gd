@@ -2,10 +2,12 @@
 extends Control
 
 # Vars
+const LevelUpGUI = preload("res://Scenes/LevelUp.tscn")
 var PlayerMonster : MonsterStats
 var EnemyMonster : MonsterStats
 var ActivePlayerTurn : bool = true
 var GameOver : bool = false
+var XPAwarded : int = 0
 var TypeWeakness : Dictionary = {
 	"fire": "water",
 	"water": "grass",
@@ -17,12 +19,14 @@ var TurnNumber : int = 0
 @onready var EnemyHealth : Label = get_node("%EnemyHealth")
 @onready var DefendedPlayer : Label = get_node("%DefendedPlayer")
 @onready var DefendedEnemy : Label = get_node("%DefendedEnemy")
+@onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
 
 
 ## Function that prepares scene for battle
-func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats):
+func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : int):
 	PlayerMonster = PMonster
 	EnemyMonster = EMonster
+	XPAwarded = Experience
 	
 	await UpdateStats()
 
@@ -42,6 +46,24 @@ func UpdateStats():
 		EnemyMonster.Health = 0
 		EnemyHealth.text = "Enemy monster health: " + str(EnemyMonster.Health)
 		GameOver = true
+		
+		# Award XP and hide BattleGUI
+		if get_parent().name == "TestMonsterBattle":
+			return
+		
+		# Add experience and check if level up is required
+		var LevelUp = PlayerMonster.AddXP(XPAwarded)
+		if LevelUp == true:
+			var LevelUpGUIInstance : Window = LevelUpGUI.instantiate()
+			add_child(LevelUpGUIInstance)
+			LevelUpGUIInstance.move_to_center()
+			LevelUpGUIInstance.SetUp(PlayerMonster)
+		
+		
+		# Unpause character and resume camera control
+		PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
+		get_node("Camera2D").enabled = false
+		hide()
 
 
 

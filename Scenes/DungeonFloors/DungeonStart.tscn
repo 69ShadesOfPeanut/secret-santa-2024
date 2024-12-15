@@ -18,6 +18,7 @@ tile_map_data = PackedByteArray("AAAGAAYAAQABAAEAAAAGAAcAAQABAAEAAAAGAAgAAQABAAE
 tile_set = ExtResource("1_kq3s4")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_5h3t6")]
+unique_name_in_owner = true
 position = Vector2(200, 200)
 
 [node name="MonsterPickInteractable" parent="." instance=ExtResource("3_eei3u")]

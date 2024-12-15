@@ -5,6 +5,8 @@ class_name Interactable
 # Vars
 var InRange = true
 const SignResource = preload("res://Scenes/Sign.tscn")
+@onready var BattleGUI : Control = get_node("%BattleGui")
+@onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
 # Export vars
 @export var InteractText : String = "interact"
 @export_subgroup("Level Transfer")
@@ -28,6 +30,16 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export var Sign : bool
 ## Text to display on the sign
 @export_multiline var SignText : String
+@export_subgroup("Trainer")
+## Toggle to set if this interactable will be a trainer battle
+@export var Trainer : bool
+## The monster the trainer will use
+@export var TrainerMonster : MonsterStats
+## If the trainer should have a random monster type
+@export var RandomMonsterType : bool
+# The amount of XP to give
+@export var XPGiven : int
+
 
 # Function called when a Node2D enters the area
 func BodyEntered(Body: Node2D) -> void:
@@ -66,6 +78,26 @@ func BodyEntered(Body: Node2D) -> void:
 					SignInstance.get_node("%Label").text = SignText
 					add_child(SignInstance)
 					get_tree().paused = true
+				elif Trainer == true:
+					# Checks if random monster type is turned on, then assign a random type
+					if RandomMonsterType == true:
+						var TypeNum = randi_range(1, 3)
+						match TypeNum:
+							1:
+								TrainerMonster.MonsterType = "fire"
+							2:
+								TrainerMonster.MonsterType = "water"
+							3:
+								TrainerMonster.MonsterType = "grass"
+						print("Trainer monster type is " + TrainerMonster.MonsterType)
+					
+					# Setup the battle GUI
+					BattleGUI.get_node("Camera2D").enabled = true
+					BattleGUI.get_node("Camera2D").make_current()
+					BattleGUI.show()
+					PlayerCharacter.process_mode = PROCESS_MODE_DISABLED
+					
+					BattleGUI.SceneSetup(PlayerCharacter.Monster, TrainerMonster, XPGiven)
 				InRange = false
 
 

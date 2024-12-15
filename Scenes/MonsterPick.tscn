@@ -102,9 +102,9 @@ Grass -> Water"
 layout_mode = 2
 text = "Back"
 
-[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/FireButton" to="." method="ButtonPressed" binds= ["Fire"]]
-[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/WaterButton" to="." method="ButtonPressed" binds= ["Water"]]
-[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/GrassButton" to="." method="ButtonPressed" binds= ["Grass"]]
+[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/FireButton" to="." method="ButtonPressed" binds= ["fire"]]
+[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/WaterButton" to="." method="ButtonPressed" binds= ["water"]]
+[connection signal="pressed" from="MonsterPick/VBoxContainer/HBoxContainer/GrassButton" to="." method="ButtonPressed" binds= ["grass"]]
 [connection signal="pressed" from="MonsterPick/VBoxContainer/TutorialButton" to="." method="TutorialPressed"]
 [connection signal="pressed" from="ConfirmationWindow/VBoxContainer/HBoxContainer/YesButton" to="." method="ConfirmationButton" binds= ["Yes"]]
 [connection signal="pressed" from="ConfirmationWindow/VBoxContainer/HBoxContainer/NoButton" to="." method="ConfirmationButton" binds= ["No"]]
