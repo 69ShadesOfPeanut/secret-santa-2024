@@ -4,6 +4,7 @@ extends CharacterBody2D
 # Vars
 var Monster = MonsterStats.new()
 var HasPlayerChosen : bool = false
+var TrainersDefeated : int = 0
 # Stats
 @export var Speed : int = 100
 

@@ -16,6 +16,10 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export_file var Level
 ## Toggle to set if the interactable should check the state of something first
 @export var CheckState : bool
+## Leave toggle off if it should be bool. Turn on if you want int check
+@export var CheckInt : bool
+## The value to check. It'll ALWAYS check if the value if higher than
+@export var CheckIntValue : int
 ## The node that the interactable should check
 @export var NodeToCheck : Node
 ## The name of the value that the interactable should check
@@ -59,8 +63,15 @@ func BodyEntered(Body: Node2D) -> void:
 				if LevelTransfer == true:
 					# Check if the interactable needs to check a status
 					if CheckState == true:
-						if NodeToCheck[ValueToCheck] == false:
-							return
+						# Check what type of check state it needs to be
+						if CheckInt == false:
+							if NodeToCheck[ValueToCheck] == false:
+								print("Player doesn't meet bool check requirements. Returning.")
+								return
+						else:
+							if NodeToCheck[ValueToCheck] < CheckIntValue:
+								print("Player doesn't meet int check requirements. Returning.")
+								return
 					
 					# Attempt to change the level
 					print("Changing levels...")

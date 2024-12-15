@@ -61,6 +61,8 @@ func UpdateStats():
 			LevelUpGUIInstance.move_to_center()
 			LevelUpGUIInstance.SetUp(PlayerMonster)
 		
+		# Give player character +1 trainer defeat
+		PlayerCharacter.TrainersDefeated += 1
 		
 		# Unpause character and resume camera control
 		PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
