@@ -18,6 +18,7 @@ func ButtonPressed(Type : String):
 	
 	# Sets the monster type
 	PlayerCharacter.Monster.MonsterType = Type
+	PlayerCharacter.HasPlayerChosen = true
 	print(PlayerCharacter.Monster.MonsterType)
 	
 	# Set confirmation text and make confirmation window appear

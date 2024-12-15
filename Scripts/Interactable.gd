@@ -12,6 +12,12 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export var LevelTransfer : bool
 ## The level this will transfer the player to
 @export_file var Level
+## Toggle to set if the interactable should check the state of something first
+@export var CheckState : bool
+## The node that the interactable should check
+@export var NodeToCheck : Node
+## The name of the value that the interactable should check
+@export var ValueToCheck : String
 @export_subgroup("Scene instance")
 ## Toggle to set if this interactable will instance a scene
 @export var SceneInstance : bool
@@ -39,6 +45,12 @@ func BodyEntered(Body: Node2D) -> void:
 				print("Player interaction")
 				# Check what action needs to be done
 				if LevelTransfer == true:
+					# Check if the interactable needs to check a status
+					if CheckState == true:
+						if NodeToCheck[ValueToCheck] == false:
+							return
+					
+					# Attempt to change the level
 					print("Changing levels...")
 					var Result = get_tree().change_scene_to_file(Level)
 					if Result != OK:
