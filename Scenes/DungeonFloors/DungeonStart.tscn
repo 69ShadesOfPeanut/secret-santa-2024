@@ -25,3 +25,10 @@ position = Vector2(200, 120)
 InteractText = "pick a monster"
 SceneInstance = true
 SceneFile = ExtResource("4_al8i5")
+
+[node name="Sign" parent="." instance=ExtResource("3_eei3u")]
+position = Vector2(232, 200)
+InteractText = "read"
+Sign = true
+SignText = "Interact with the chest to pick your monster type...
+Then continue down the ladder to start the dungeonas"

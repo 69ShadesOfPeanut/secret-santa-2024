@@ -4,6 +4,7 @@ class_name Interactable
 
 # Vars
 var InRange = true
+const SignResource = preload("res://Scenes/Sign.tscn")
 # Export vars
 @export var InteractText : String = "interact"
 @export_subgroup("Level Transfer")
@@ -16,6 +17,11 @@ var InRange = true
 @export var SceneInstance : bool
 ## The location of the scene to instance
 @export var SceneFile : Resource
+@export_subgroup("Sign")
+## Toggle to set if this interactable will be a sign and purely display text
+@export var Sign : bool
+## Text to display on the sign
+@export_multiline var SignText : String
 
 # Function called when a Node2D enters the area
 func BodyEntered(Body: Node2D) -> void:
@@ -42,6 +48,11 @@ func BodyEntered(Body: Node2D) -> void:
 				elif SceneInstance == true:
 					var SceneInstance = SceneFile.instantiate()
 					add_child(SceneInstance)
+					get_tree().paused = true
+				elif Sign == true:
+					var SignInstance = SignResource.instantiate()
+					SignInstance.get_node("%Label").text = SignText
+					add_child(SignInstance)
 					get_tree().paused = true
 				InRange = false
 
