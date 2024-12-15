@@ -41,4 +41,4 @@ func _ready() -> void:
 	PlayerMonster.PlayerMonster = true
 	
 	# Start battle
-	BattleGUI.SceneSetup(PlayerMonster, EnemyMonster, 0)
+	BattleGUI.SceneSetup(PlayerMonster, EnemyMonster, 0, null)

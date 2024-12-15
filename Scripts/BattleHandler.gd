@@ -20,13 +20,15 @@ var TurnNumber : int = 0
 @onready var DefendedPlayer : Label = get_node("%DefendedPlayer")
 @onready var DefendedEnemy : Label = get_node("%DefendedEnemy")
 @onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
+var TrainerNode : Interactable
 
 
 ## Function that prepares scene for battle
-func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : int):
+func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : int, Trainer : Interactable):
 	PlayerMonster = PMonster
 	EnemyMonster = EMonster
 	XPAwarded = Experience
+	TrainerNode = Trainer
 	
 	await UpdateStats()
 
@@ -64,6 +66,12 @@ func UpdateStats():
 		PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
 		get_node("Camera2D").enabled = false
 		hide()
+		
+		# Checks if theres a trainer node
+		# If there is one, then free the trainer node so that you can't rechallenge
+		if TrainerNode == null:
+			return
+		TrainerNode.queue_free()
 
 
 

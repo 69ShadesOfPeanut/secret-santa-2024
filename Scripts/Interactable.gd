@@ -97,7 +97,7 @@ func BodyEntered(Body: Node2D) -> void:
 					BattleGUI.show()
 					PlayerCharacter.process_mode = PROCESS_MODE_DISABLED
 					
-					BattleGUI.SceneSetup(PlayerCharacter.Monster, TrainerMonster, XPGiven)
+					BattleGUI.SceneSetup(PlayerCharacter.Monster, TrainerMonster, XPGiven, self)
 				InRange = false
 
 
