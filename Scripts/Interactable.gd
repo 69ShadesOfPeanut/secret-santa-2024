@@ -1,5 +1,6 @@
 # Script to handle interacable nodes in this game
 extends Area2D
+class_name Interactable
 
 # Vars
 var InRange = true
@@ -10,6 +11,11 @@ var InRange = true
 @export var LevelTransfer : bool
 ## The level this will transfer the player to
 @export_file var Level
+@export_subgroup("Scene instance")
+## Toggle to set if this interactable will instance a scene
+@export var SceneInstance : bool
+## The location of the scene to instance
+@export var SceneFile : Resource
 
 # Function called when a Node2D enters the area
 func BodyEntered(Body: Node2D) -> void:
@@ -33,7 +39,12 @@ func BodyEntered(Body: Node2D) -> void:
 						printerr("Scene load failed")
 					else:
 						print("Scene load success!")
+				elif SceneInstance == true:
+					var SceneInstance = SceneFile.instantiate()
+					add_child(SceneInstance)
+					get_tree().paused = true
 				InRange = false
+
 
 # Function called when a Node2D exits the area
 func BodyExited(Body: Node2D) -> void:

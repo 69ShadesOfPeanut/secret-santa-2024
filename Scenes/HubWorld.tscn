@@ -25,4 +25,6 @@ position = Vector2(552, 344)
 
 [node name="Minecart" parent="." instance=ExtResource("3_nqa1a")]
 position = Vector2(552, 184)
+InteractText = "start game"
 LevelTransfer = true
+Level = "res://Scenes/DungeonFloors/DungeonStart.tscn"
