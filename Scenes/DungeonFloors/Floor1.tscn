@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://viq87c16m1os"]
+[gd_scene load_steps=8 format=4 uid="uid://viq87c16m1os"]
 
 [ext_resource type="TileSet" uid="uid://bfbqycdymh073" path="res://Resources/TileSets/World.tres" id="1_7e2i3"]
 [ext_resource type="PackedScene" uid="uid://s5bop0t83dsm" path="res://Scenes/PlayerCharacter.tscn" id="2_a8fao"]
 [ext_resource type="PackedScene" uid="uid://d2jxj8f4o8y8" path="res://Scenes/Interactable.tscn" id="3_2xoqa"]
 [ext_resource type="Script" path="res://Scripts/MonsterStats.gd" id="4_6fo0j"]
 [ext_resource type="PackedScene" uid="uid://5wvdcrba6idj" path="res://Scenes/Battle GUI.tscn" id="5_7clfv"]
+[ext_resource type="PackedScene" uid="uid://d7aob7xhr6gr" path="res://Scenes/MonsterInfoScreen.tscn" id="6_575ma"]
 
 [sub_resource type="Resource" id="Resource_anyiw"]
 script = ExtResource("4_6fo0j")
@@ -58,6 +59,13 @@ CheckIntValue = 1
 ValueToCheck = "TrainersDefeated"
 
 [node name="BattleGui" parent="." instance=ExtResource("5_7clfv")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MonsterInfoScreen" parent="." instance=ExtResource("6_575ma")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(1152, 648)

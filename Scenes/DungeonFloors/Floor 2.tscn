@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b4fihic3m5x"]
+[gd_scene load_steps=9 format=4 uid="uid://b4fihic3m5x"]
 
 [ext_resource type="TileSet" uid="uid://bfbqycdymh073" path="res://Resources/TileSets/World.tres" id="1_0q8n6"]
 [ext_resource type="PackedScene" uid="uid://s5bop0t83dsm" path="res://Scenes/PlayerCharacter.tscn" id="2_hykik"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2jxj8f4o8y8" path="res://Scenes/Interactable.tscn" id="3_jva0q"]
 [ext_resource type="Script" path="res://Scripts/MonsterStats.gd" id="4_tsesn"]
 [ext_resource type="PackedScene" uid="uid://5wvdcrba6idj" path="res://Scenes/Battle GUI.tscn" id="6_5t84s"]
+[ext_resource type="PackedScene" uid="uid://d7aob7xhr6gr" path="res://Scenes/MonsterInfoScreen.tscn" id="7_egvsw"]
 
 [sub_resource type="Resource" id="Resource_mpxcx"]
 script = ExtResource("4_tsesn")
@@ -70,6 +71,13 @@ unique_name_in_owner = true
 position = Vector2(424, 280)
 
 [node name="BattleGui" parent="." instance=ExtResource("6_5t84s")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MonsterInfoScreen" parent="." instance=ExtResource("7_egvsw")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(1152, 648)

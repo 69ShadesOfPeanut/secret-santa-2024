@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://vqb6nri3r136"]
+[gd_scene load_steps=6 format=4 uid="uid://vqb6nri3r136"]
 
 [ext_resource type="TileSet" uid="uid://bfbqycdymh073" path="res://Resources/TileSets/World.tres" id="1_kq3s4"]
 [ext_resource type="PackedScene" uid="uid://s5bop0t83dsm" path="res://Scenes/PlayerCharacter.tscn" id="2_5h3t6"]
 [ext_resource type="PackedScene" uid="uid://d2jxj8f4o8y8" path="res://Scenes/Interactable.tscn" id="3_eei3u"]
 [ext_resource type="PackedScene" uid="uid://bu7ipo1ygrg8o" path="res://Scenes/MonsterPick.tscn" id="4_al8i5"]
+[ext_resource type="PackedScene" uid="uid://d7aob7xhr6gr" path="res://Scenes/MonsterInfoScreen.tscn" id="5_qgicw"]
 
 [node name="DungeonStart" type="Node2D"]
 
@@ -41,3 +42,10 @@ LevelTransfer = true
 Level = "res://Scenes/DungeonFloors/Floor1.tscn"
 CheckState = true
 ValueToCheck = "HasPlayerChosen"
+
+[node name="MonsterInfoScreen" parent="." instance=ExtResource("5_qgicw")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0

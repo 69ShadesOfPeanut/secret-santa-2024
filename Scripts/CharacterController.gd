@@ -1,6 +1,9 @@
 # Script for controlling the character
 extends CharacterBody2D
 
+# Vars
+# Nodes
+@onready var MonsterInfoScreen = get_node("%MonsterInfoScreen")
 
 ## Sets the player monster to be owned by the player
 func _ready() -> void:
@@ -9,6 +12,16 @@ func _ready() -> void:
 
 ## Gets the keys the player is pressing then turns it into directional velocity
 func get_input():
+	# Get if player is pressing is interaction key
+	# Open monster info if key is pressed
+	if Input.is_action_just_pressed("MonsterInfo"):
+		MonsterInfoScreen.visible = true
+		MonsterInfoScreen.get_node("Camera2D").enabled = true
+		MonsterInfoScreen.get_node("Camera2D").make_current()
+		MonsterInfoScreen.UpdateStats()
+		process_mode = PROCESS_MODE_DISABLED
+	
+	# Move character
 	var InputDirection = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = InputDirection * CharacterStats.Speed
 
