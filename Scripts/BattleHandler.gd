@@ -65,7 +65,11 @@ func UpdateStats():
 			LevelUpGUIInstance.SetUp(PlayerMonster)
 		
 		# Give player character +1 trainer defeat
-		PlayerCharacter.TrainersDefeated += 1
+		CharacterStats.TrainersDefeated += 1
+		print("Player has now defeated " + str(CharacterStats.TrainersDefeated) + " trainers")
+		
+		# Heal the player
+		CharacterStats.Monster.Health = CharacterStats.Monster.MaxHealth
 		
 		# Unpause character and resume camera control
 		PlayerCharacter.process_mode = PROCESS_MODE_INHERIT

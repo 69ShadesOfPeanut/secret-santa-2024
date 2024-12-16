@@ -9,13 +9,13 @@
 [sub_resource type="Resource" id="Resource_anyiw"]
 script = ExtResource("4_6fo0j")
 MonsterType = "fire"
-Health = 20
+MaxHealth = 20
 Attack = 8
 RandomiseStats = false
-MinHealth = 0
-MaxHealth = 0
-MinAttack = 0
-MaxAttack = 0
+MinHealthRange = 0
+MaxHealthRange = 0
+MinAttackRange = 0
+MaxAttackRange = 0
 
 [node name="Floor1" type="Node2D"]
 
@@ -48,14 +48,13 @@ TrainerMonster = SubResource("Resource_anyiw")
 RandomMonsterType = true
 XPGiven = 100
 
-[node name="Ladder" parent="Interactables" node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("3_2xoqa")]
+[node name="Ladder" parent="Interactables" instance=ExtResource("3_2xoqa")]
 position = Vector2(632, 104)
 LevelTransfer = true
 Level = "res://Scenes/DungeonFloors/Floor 2.tscn"
 CheckState = true
 CheckInt = true
 CheckIntValue = 1
-NodeToCheck = NodePath("../../PlayerCharacter")
 ValueToCheck = "TrainersDefeated"
 
 [node name="BattleGui" parent="." instance=ExtResource("5_7clfv")]

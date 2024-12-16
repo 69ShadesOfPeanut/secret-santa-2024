@@ -20,8 +20,6 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export var CheckInt : bool
 ## The value to check. It'll ALWAYS check if the value if higher than
 @export var CheckIntValue : int
-## The node that the interactable should check
-@export var NodeToCheck : Node
 ## The name of the value that the interactable should check
 @export var ValueToCheck : String
 @export_subgroup("Scene instance")
@@ -65,11 +63,11 @@ func BodyEntered(Body: Node2D) -> void:
 					if CheckState == true:
 						# Check what type of check state it needs to be
 						if CheckInt == false:
-							if NodeToCheck[ValueToCheck] == false:
+							if CharacterStats[ValueToCheck] == false:
 								print("Player doesn't meet bool check requirements. Returning.")
 								return
 						else:
-							if NodeToCheck[ValueToCheck] < CheckIntValue:
+							if CharacterStats[ValueToCheck] < CheckIntValue:
 								print("Player doesn't meet int check requirements. Returning.")
 								return
 					
@@ -108,7 +106,7 @@ func BodyEntered(Body: Node2D) -> void:
 					BattleGUI.show()
 					PlayerCharacter.process_mode = PROCESS_MODE_DISABLED
 					
-					BattleGUI.SceneSetup(PlayerCharacter.Monster, TrainerMonster, XPGiven, self)
+					BattleGUI.SceneSetup(CharacterStats.Monster, TrainerMonster, XPGiven, self)
 				InRange = false
 
 

@@ -21,7 +21,7 @@ func _ready() -> void:
 func BodyEnteredArea(Body: Node2D) -> void:
 	if Body.name == "PlayerCharacter" and SpikeSprite.visible == true:
 		Body.TakeDamage(Damage)
-		print("Player health is now: " + str(Body.Health))
+		print("Player health is now: " + str(CharacterStats.Health))
 
 ## Handles becoming visible and not visible / active and not active
 func SpikeFlicker():

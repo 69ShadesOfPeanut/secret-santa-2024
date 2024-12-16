@@ -17,9 +17,9 @@ func ButtonPressed(Type : String):
 	print(Type + " pressed")
 	
 	# Sets the monster type
-	PlayerCharacter.Monster.MonsterType = Type
-	PlayerCharacter.HasPlayerChosen = true
-	print(PlayerCharacter.Monster.MonsterType)
+	CharacterStats.Monster.MonsterType = Type
+	CharacterStats.HasPlayerChosen = true
+	print(CharacterStats.Monster.MonsterType)
 	
 	# Set confirmation text and make confirmation window appear
 	ConfirmationLabel.text = "Are you sure you want to select " + Type + " type?"

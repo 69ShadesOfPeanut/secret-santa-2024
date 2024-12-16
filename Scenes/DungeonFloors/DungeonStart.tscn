@@ -34,11 +34,10 @@ Sign = true
 SignText = "Interact with the chest to pick your monster type...
 Then continue down the ladder to start the dungeonas"
 
-[node name="Ladder" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("3_eei3u")]
+[node name="Ladder" parent="." instance=ExtResource("3_eei3u")]
 position = Vector2(264, 120)
 InteractText = "start dungeon"
 LevelTransfer = true
 Level = "res://Scenes/DungeonFloors/Floor1.tscn"
 CheckState = true
-NodeToCheck = NodePath("../PlayerCharacter")
 ValueToCheck = "HasPlayerChosen"

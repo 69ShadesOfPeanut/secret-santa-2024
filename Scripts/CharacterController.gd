@@ -1,24 +1,16 @@
 # Script for controlling the character
 extends CharacterBody2D
 
-# Vars
-var Monster = MonsterStats.new()
-var HasPlayerChosen : bool = false
-var TrainersDefeated : int = 0
-# Stats
-@export var Speed : int = 100
-@export var Health : int = 100
-
 
 ## Sets the player monster to be owned by the player
 func _ready() -> void:
-	Monster.PlayerMonster = true
-	Monster.MonsterName = "Player"
+	CharacterStats.Monster.PlayerMonster = true
+	CharacterStats.Monster.MonsterName = "Player"
 
 ## Gets the keys the player is pressing then turns it into directional velocity
 func get_input():
 	var InputDirection = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = InputDirection * Speed
+	velocity = InputDirection * CharacterStats.Speed
 
 ## Function that calls get input and handles moving the player
 func _physics_process(delta: float) -> void:
@@ -27,4 +19,4 @@ func _physics_process(delta: float) -> void:
 
 ## Function called to make the player take damage
 func TakeDamage(Damage : int):
-	Health -= Damage
+	CharacterStats.Health -= Damage

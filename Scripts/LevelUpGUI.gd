@@ -26,8 +26,11 @@ func ButtonPress(ButtonStat : String):
 	# Check stat then increase it
 	match  ButtonStat:
 		"Health":
-			PlayerMonster.Health += 1
+			PlayerMonster.MaxHealth += 1
 			print("Player health is now: " + str(PlayerMonster.Health))
+			
+			# Heal the player
+			CharacterStats.Monster.Health = CharacterStats.Monster.MaxHealth
 		"Attack":
 			PlayerMonster.Attack += 1
 			print("Player attack is now: " + str(PlayerMonster.Attack))

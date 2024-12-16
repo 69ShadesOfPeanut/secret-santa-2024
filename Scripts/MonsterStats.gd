@@ -26,7 +26,8 @@ var MonsterName : String = "Enemy"
 @export_enum("fire", "water", "grass") var MonsterType : String = "fire"
 
 # Stats
-@export var Health : int = 20
+@export var MaxHealth : int = 20
+var Health : int = MaxHealth
 @export var Attack : int = 8
 
 # Stats for if randomise stats is on
@@ -34,19 +35,21 @@ var MonsterName : String = "Enemy"
 ## Toggle on to have starting stats be random
 @export var RandomiseStats : bool = false
 @export_subgroup("Health Range")
-@export_range(1, 20) var MinHealth : int
-@export_range(1, 20) var MaxHealth : int
+@export_range(1, 20) var MinHealthRange : int
+@export_range(1, 20) var MaxHealthRange : int
 @export_subgroup("Attack Range")
-@export_range(1, 20) var MinAttack : int
-@export_range(1, 20) var MaxAttack : int
+@export_range(1, 20) var MinAttackRange : int
+@export_range(1, 20) var MaxAttackRange : int
 
 
 # Randomise stats if randomise stat is turned on
 func RandomiseStatsFunction():
 	print("Randomise stats function called")
 	
-	Health = randi_range(MinHealth, MaxHealth)
-	Attack = randi_range(MinAttack, MaxAttack)
+	MaxHealth = randi_range(MinHealthRange, MaxHealthRange)
+	Attack = randi_range(MinAttackRange, MaxAttackRange)
+	
+	Health = MaxHealth
 
 # Function that adds experience
 func AddXP(XPGiven : int):

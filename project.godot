@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/HubWorld.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CharacterStats="*res://Scripts/Autoloads/CharacterStats.gd"
+
 [display]
 
 window/stretch/mode="viewport"
