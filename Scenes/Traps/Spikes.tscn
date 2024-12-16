@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh2imiwonjs2b"]
+
+[ext_resource type="Texture2D" uid="uid://bqghkkawv82nt" path="res://Resources/Assets/Spikes.png" id="1_ry6ig"]
+[ext_resource type="Script" path="res://Scripts/Traps/Spikes.gd" id="1_wehw7"]
+[ext_resource type="Texture2D" uid="uid://p38o1724elpd" path="res://Resources/Assets/Warning.png" id="3_u246v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d068v"]
+size = Vector2(16, 16)
+
+[node name="Spikes" type="Node2D"]
+script = ExtResource("1_wehw7")
+
+[node name="SpikeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ry6ig")
+
+[node name="WarningSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_u246v")
+
+[node name="WarningTimer" type="Timer" parent="WarningSprite"]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_d068v")
+
+[connection signal="timeout" from="WarningSprite/WarningTimer" to="." method="WarningFlicker"]
+[connection signal="body_entered" from="Area2D" to="." method="BodyEnteredArea"]

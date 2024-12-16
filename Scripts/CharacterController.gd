@@ -7,6 +7,7 @@ var HasPlayerChosen : bool = false
 var TrainersDefeated : int = 0
 # Stats
 @export var Speed : int = 100
+@export var Health : int = 100
 
 
 ## Sets the player monster to be owned by the player
@@ -23,3 +24,7 @@ func get_input():
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
+
+## Function called to make the player take damage
+func TakeDamage(Damage : int):
+	Health -= Damage
