@@ -35,6 +35,9 @@ func _physics_process(delta: float) -> void:
 
 ## Function called to make the player take damage
 func TakeDamage(Damage : int):
+	# Play hurt sound
+	Audio.PlaySFX("Hurt")
+	
 	CharacterStats.Health -= Damage
 	HealthLabel.text = "Health: " + str(CharacterStats.Health)
 	

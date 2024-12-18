@@ -3,7 +3,8 @@ extends Node
 
 # Vars
 @onready var SFX := {
-	"Click": preload("res://Resources/Sounds/Click.ogg")
+	"Click": preload("res://Resources/Sounds/Click.ogg"),
+	"Hurt": preload("res://Resources/Sounds/Hurt.ogg")
 }
 # Nodes
 @onready var SFXStreamPlayer : AudioStreamPlayer = get_node("SFX")
