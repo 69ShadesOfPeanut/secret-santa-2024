@@ -45,3 +45,9 @@ func TakeDamage(Damage : int):
 	DamageVignette.show()
 	await get_tree().create_timer(0.2).timeout
 	DamageVignette.hide()
+	
+	
+	# Check if player is dead
+	if CharacterStats.Health <= 0:
+		Audio.PlaySFX("Death")
+		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")

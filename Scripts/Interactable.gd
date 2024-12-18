@@ -137,6 +137,9 @@ func BodyEntered(Body: Node2D) -> void:
 						print("Player has already opened chest, stopping action")
 						return
 					
+					# Play chest opening audio
+					Audio.PlaySFX("Chest")
+					
 					# Play opening chest animation and wait
 					AnimationPlayerNode.play("ChestOpening")
 					await AnimationPlayerNode.animation_finished
