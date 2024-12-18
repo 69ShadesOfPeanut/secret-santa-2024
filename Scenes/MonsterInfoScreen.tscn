@@ -54,6 +54,17 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Attack: X"
 
+[node name="XP" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "XP: X"
+
+[node name="XPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 45.0
+
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"

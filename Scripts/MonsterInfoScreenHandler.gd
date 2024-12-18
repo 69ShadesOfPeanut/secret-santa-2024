@@ -7,6 +7,8 @@ extends Control
 @onready var HealthLabel : Label = get_node("%Health")
 @onready var AttackLabel : Label = get_node("%Attack")
 @onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
+@onready var XPLabel : Label = get_node("%XP")
+@onready var XPBar : ProgressBar = get_node("%XPBar")
 
 
 
@@ -18,6 +20,9 @@ func UpdateStats() -> void:
 	TypeLabel.text = "Type: " + CharacterStats.Monster.MonsterType
 	HealthLabel.text = "Health: " + str(CharacterStats.Monster.Health) + "/" + str(CharacterStats.Monster.MaxHealth)
 	AttackLabel.text = "Attack: " + str(CharacterStats.Monster.Attack)
+	XPLabel.text = "XP: " + str(CharacterStats.Monster.Experience)
+	XPBar.max_value = CharacterStats.Monster.ExperienceLevelUp
+	XPBar.value = CharacterStats.Monster.Experience
 
 # Exits the menu
 func BackButton() -> void:

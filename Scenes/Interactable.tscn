@@ -1,15 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2jxj8f4o8y8"]
+[gd_scene load_steps=9 format=3 uid="uid://d2jxj8f4o8y8"]
 
 [ext_resource type="Script" path="res://Scripts/Interactable.gd" id="1_8mw3n"]
+[ext_resource type="Texture2D" uid="uid://brbh0basy1px" path="res://Resources/Assets/Chest/Chest1.png" id="2_3se6u"]
+[ext_resource type="Texture2D" uid="uid://kaptmu17nc3k" path="res://Resources/Assets/Chest/Chest2.png" id="3_7y1td"]
+[ext_resource type="Texture2D" uid="uid://c2fg1tjiwhws5" path="res://Resources/Assets/Chest/Chest3.png" id="4_jppvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slm1e"]
 size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_pudyx"]
+resource_name = "ChestOpening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_3se6u"), ExtResource("3_7y1td"), ExtResource("4_jppvv")]
+}
+
+[sub_resource type="Animation" id="Animation_5pnb0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3se6u")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dhpo"]
+_data = {
+"ChestOpening": SubResource("Animation_pudyx"),
+"RESET": SubResource("Animation_5pnb0")
+}
 
 [node name="Interactable" type="Area2D"]
 script = ExtResource("1_8mw3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_slm1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_3se6u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0dhpo")
+}
 
 [connection signal="body_entered" from="." to="." method="BodyEntered"]
 [connection signal="body_exited" from="." to="." method="BodyExited"]
