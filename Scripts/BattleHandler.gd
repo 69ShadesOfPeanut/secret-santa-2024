@@ -46,6 +46,9 @@ func UpdateStats():
 		PlayerMonster.Health = 0
 		YourHealth.text = "Your monster health: " + str(PlayerMonster.Health)
 		GameOver = true
+		
+		# Change to game over scene
+		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 	if EnemyMonster.Health <= 0:
 		print_rich("[b]Player WINS![/b]")
 		EnemyMonster.Health = 0

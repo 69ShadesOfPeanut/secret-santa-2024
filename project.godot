@@ -19,10 +19,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 CharacterStats="*res://Scripts/Autoloads/CharacterStats.gd"
+PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
+Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
 
 [input]
 
