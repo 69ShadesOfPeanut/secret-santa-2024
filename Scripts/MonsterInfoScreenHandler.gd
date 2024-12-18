@@ -26,6 +26,9 @@ func UpdateStats() -> void:
 
 # Exits the menu
 func BackButton() -> void:
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
 	get_node("Camera2D").enabled = false
 	hide()

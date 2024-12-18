@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://in7mtj8ki3my"]
+
+[ext_resource type="Script" path="res://Scripts/AudioHandler.gd" id="1_jvaef"]
+
+[sub_resource type="AudioStream" id="AudioStream_cmdkk"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_jvaef")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_cmdkk")

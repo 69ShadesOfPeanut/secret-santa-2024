@@ -128,6 +128,9 @@ func PlayerTurn(Action : String):
 ## Function for handling the enemy turn
 ## for now it just selects a random option
 func EnemyTurn():
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	# Check if game is over
 	if GameOver == true:
 		DisableButtons()

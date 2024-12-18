@@ -14,6 +14,9 @@ func _ready() -> void:
 
 # Function called when username gets entered in and user presses enter
 func UsernameEnter() -> void:
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	var UsernameWithoutSpaces = UsernameEnterNode.text.lstrip(" ")
 	# Check if username is too long
 	if UsernameEnterNode.text.length() >= MaxUsernameLength or UsernameWithoutSpaces.is_empty():

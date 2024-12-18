@@ -16,6 +16,9 @@ extends Control
 func ButtonPressed(Type : String):
 	print(Type + " pressed")
 	
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	# Sets the monster type
 	CharacterStats.Monster.MonsterType = Type
 	CharacterStats.HasPlayerChosen = true
@@ -32,6 +35,9 @@ func ButtonPressed(Type : String):
 func ConfirmationButton(Answer : String):
 	print(Answer)
 	
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	
 	# Check the users answer
 	if Answer == "Yes":
@@ -47,6 +53,9 @@ func ConfirmationButton(Answer : String):
 ## Called when the user presses the tutorial button
 ## Gives the player a rundown of each type
 func TutorialPressed():
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	MonsterPickWindow.hide()
 	ConfirmationWindow.hide()
 	TutorialWindow.show()
@@ -54,5 +63,8 @@ func TutorialPressed():
 ## Called when the user presses the back button on the tutorial window
 ## Closes the tutorial window
 func TutorialBack() -> void:
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	MonsterPickWindow.show()
 	TutorialWindow.hide()

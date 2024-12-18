@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CharacterStats="*res://Scripts/Autoloads/CharacterStats.gd"
+Audio="*res://Scenes/Autoloads/Audio.tscn"
 PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
 

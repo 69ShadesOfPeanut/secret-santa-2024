@@ -22,6 +22,9 @@ func UpdateText():
 func ButtonPress(ButtonStat : String):
 	print(ButtonStat + " button pressed")
 	
+	# Play audio
+	Audio.PlaySFX("Click")
+	
 	
 	# Check stat then increase it
 	match  ButtonStat:
