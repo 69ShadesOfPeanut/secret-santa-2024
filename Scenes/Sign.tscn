@@ -9,14 +9,14 @@ bg_color = Color(0.306923, 0.306923, 0.306923, 1)
 [node name="Sign" type="PopupPanel"]
 process_mode = 3
 initial_position = 2
-size = Vector2i(160, 100)
+size = Vector2i(154, 100)
 visible = true
 script = ExtResource("1_ifyhw")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 156.0
+offset_right = 150.0
 offset_bottom = 96.0
 
 [node name="Panel" type="Panel" parent="MarginContainer2"]
