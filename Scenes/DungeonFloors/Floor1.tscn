@@ -53,7 +53,7 @@ ScoreGiven = 10
 [node name="Ladder" parent="Interactables" instance=ExtResource("3_2xoqa")]
 position = Vector2(632, 104)
 LevelTransfer = true
-Level = "res://Scenes/DungeonFloors/Floor 2.tscn"
+Level = "res://Scenes/DungeonFloors/Floor2.tscn"
 CheckState = true
 CheckInt = true
 CheckIntValue = 1
