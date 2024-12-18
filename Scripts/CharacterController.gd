@@ -38,6 +38,7 @@ func TakeDamage(Damage : int):
 	CharacterStats.Health -= Damage
 	HealthLabel.text = "Health: " + str(CharacterStats.Health)
 	
+	# Show vignette for a split second
 	DamageVignette.show()
 	await get_tree().create_timer(0.2).timeout
 	DamageVignette.hide()
