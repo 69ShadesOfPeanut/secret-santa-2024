@@ -39,7 +39,7 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export var TrainerMonster : MonsterStats
 ## If the trainer should have a random monster type
 @export var RandomMonsterType : bool
-# The amount of XP to give
+## The amount of XP to give
 @export var XPGiven : int
 
 
