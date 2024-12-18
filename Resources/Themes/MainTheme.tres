@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bvllcner0jo86"]
+
+[ext_resource type="FontFile" uid="uid://cn57sl1nhq23i" path="res://Resources/Assets/Fonts/Kenney Mini.ttf" id="1_uy1e8"]
+[ext_resource type="FontFile" uid="uid://e8bwbjrc8eb5" path="res://Resources/Assets/Fonts/Kenney Rocket.ttf" id="2_gkqku"]
+
+[resource]
+Button/fonts/font = ExtResource("1_uy1e8")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_uy1e8")
+LineEdit/fonts/font = ExtResource("1_uy1e8")
+ProgressBar/font_sizes/font_size = 32
+ProgressBar/fonts/font = ExtResource("1_uy1e8")
+RichTextLabel/fonts/bold_font = ExtResource("2_gkqku")
+RichTextLabel/fonts/normal_font = ExtResource("1_uy1e8")
+Window/fonts/title_font = ExtResource("1_uy1e8")

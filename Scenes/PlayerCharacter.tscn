@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://s5bop0t83dsm"]
+[gd_scene load_steps=6 format=3 uid="uid://s5bop0t83dsm"]
 
 [ext_resource type="Texture2D" uid="uid://dw0cd4tg6plo2" path="res://Resources/Assets/Character.png" id="1_nf4pe"]
 [ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_wowgx"]
 [ext_resource type="Texture2D" uid="uid://ckkyxxciijpuk" path="res://Resources/Assets/DamageVignette.png" id="3_ta21x"]
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="3_xgisb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu60x"]
 size = Vector2(10, 6)
@@ -25,6 +26,8 @@ offset_left = -65.0
 offset_top = -33.0
 offset_right = 66.0
 offset_bottom = -10.0
+theme = ExtResource("3_xgisb")
+theme_override_font_sizes/font_size = 16
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -34,6 +37,7 @@ offset_top = -129.6
 offset_right = 921.6
 offset_bottom = 518.4
 scale = Vector2(0.4, 0.4)
+theme = ExtResource("3_xgisb")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI"]

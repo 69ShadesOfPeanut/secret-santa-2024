@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu7ipo1ygrg8o"]
+[gd_scene load_steps=3 format=3 uid="uid://bu7ipo1ygrg8o"]
 
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="1_7cin7"]
 [ext_resource type="Script" path="res://Scripts/MonsterPickHandler.gd" id="1_sy2j5"]
 
 [node name="MonsterPick" type="Control"]
@@ -10,11 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7cin7")
 script = ExtResource("1_sy2j5")
 
 [node name="MonsterPick" type="Window" parent="."]
 initial_position = 2
-size = Vector2i(153, 100)
+size = Vector2i(234, 100)
 wrap_controls = true
 unresizable = true
 always_on_top = true
@@ -25,6 +27,7 @@ offset_bottom = 93.0
 
 [node name="Label" type="Label" parent="MonsterPick/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Pick your monster!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MonsterPick/VBoxContainer"]
@@ -32,14 +35,17 @@ layout_mode = 2
 
 [node name="FireButton" type="Button" parent="MonsterPick/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Fire"
 
 [node name="WaterButton" type="Button" parent="MonsterPick/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Water"
 
 [node name="GrassButton" type="Button" parent="MonsterPick/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Grass"
 
 [node name="TutorialButton" type="Button" parent="MonsterPick/VBoxContainer"]
@@ -48,7 +54,7 @@ text = "Type tutorial"
 
 [node name="ConfirmationWindow" type="Window" parent="."]
 initial_position = 2
-size = Vector2i(295, 100)
+size = Vector2i(483, 100)
 visible = false
 wrap_controls = true
 unresizable = true
@@ -61,6 +67,7 @@ offset_bottom = 40.0
 [node name="ConfirmationLabel" type="Label" parent="ConfirmationWindow/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Are you sure you want to select X type"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationWindow/VBoxContainer"]
@@ -78,7 +85,7 @@ text = "No"
 
 [node name="TutorialWindow" type="Window" parent="."]
 initial_position = 2
-size = Vector2i(442, 214)
+size = Vector2i(732, 260)
 visible = false
 wrap_controls = true
 unresizable = true
@@ -90,6 +97,7 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TutorialWindow/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Picking your type is a vital part of your adventure.
 Each type has it's effectiveness that you will use in battle.
 

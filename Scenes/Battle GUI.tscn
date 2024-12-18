@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://5wvdcrba6idj"]
+[gd_scene load_steps=4 format=3 uid="uid://5wvdcrba6idj"]
 
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="1_5kgxk"]
 [ext_resource type="Script" path="res://Scripts/BattleHandler.gd" id="1_m2ge5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt33v"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5kgxk")
 script = ExtResource("1_m2ge5")
 
 [node name="Background" type="Panel" parent="."]
@@ -47,6 +49,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
 text = "Your monster health:"
 
 [node name="EnemyHealth" type="Label" parent="MarginContainer/VBoxContainer/Info"]
@@ -54,6 +57,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
 text = "Enemy monster health:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -82,13 +86,23 @@ size_flags_stretch_ratio = 20.0
 
 [node name="BattleLog" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
 text = "[b]Test:[/b] Test
 [b]Test:[/b] Test
-[b]Test:[/b] Test"
-fit_content = true
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+[b]Test:[/b] Test
+"
+scroll_following = true
 
 [node name="Actions" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -99,16 +113,19 @@ size_flags_vertical = 10
 [node name="Attack" type="Button" parent="MarginContainer/VBoxContainer/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "Attack"
 
 [node name="Type attack" type="Button" parent="MarginContainer/VBoxContainer/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "Type attack"
 
 [node name="Defend" type="Button" parent="MarginContainer/VBoxContainer/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "Defend"
 
 [node name="Camera2D" type="Camera2D" parent="."]

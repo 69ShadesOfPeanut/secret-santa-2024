@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ces0hd8ocqu4y"]
+[gd_scene load_steps=3 format=3 uid="uid://ces0hd8ocqu4y"]
 
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="1_2s7v8"]
 [ext_resource type="Script" path="res://Scripts/LevelUpGUI.gd" id="1_f7k10"]
 
 [node name="LevelUp" type="Window"]
 title = "Level up!"
-size = Vector2i(192, 100)
+position = Vector2i(0, 36)
+size = Vector2i(318, 100)
 wrap_controls = true
 unresizable = true
 always_on_top = true
+theme = ExtResource("1_2s7v8")
 script = ExtResource("1_f7k10")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -16,6 +19,7 @@ offset_bottom = 40.0
 
 [node name="LevelUpLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "You have just leveled up!"
 
 [node name="HealthButton" type="Button" parent="VBoxContainer"]

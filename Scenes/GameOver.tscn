@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsyu17wkpkt50"]
+[gd_scene load_steps=3 format=3 uid="uid://bsyu17wkpkt50"]
 
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="1_d72s6"]
 [ext_resource type="Script" path="res://Scripts/GameOverHandlergd.gd" id="1_oy2rp"]
 
 [node name="GameOver" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_d72s6")
 script = ExtResource("1_oy2rp")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

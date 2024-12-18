@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d7aob7xhr6gr"]
+[gd_scene load_steps=4 format=3 uid="uid://d7aob7xhr6gr"]
 
+[ext_resource type="Theme" uid="uid://bvllcner0jo86" path="res://Resources/Themes/MainTheme.tres" id="1_er6dk"]
 [ext_resource type="Script" path="res://Scripts/MonsterInfoScreenHandler.gd" id="1_k6ppl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muje2"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_er6dk")
 script = ExtResource("1_k6ppl")
 
 [node name="Background" type="Panel" parent="."]
@@ -67,6 +69,7 @@ value = 45.0
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="Camera2D" type="Camera2D" parent="."]
