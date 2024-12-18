@@ -36,6 +36,10 @@ func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : i
 	BattleLog.clear()
 	
 	await UpdateStats()
+	
+	
+	# Setup battle music
+	Audio.MusicSwitch(true)
 
 ## Function that updates stats on screen
 func UpdateStats():
@@ -48,6 +52,9 @@ func UpdateStats():
 		PlayerMonster.Health = 0
 		YourHealth.text = "Your monster health: " + str(PlayerMonster.Health)
 		GameOver = true
+		
+		# Resume dungeon music
+		Audio.MusicSwitch(false)
 		
 		# Change to game over scene
 		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
@@ -89,6 +96,10 @@ func UpdateStats():
 		# If there is one, then free the trainer node so that you can't rechallenge
 		if TrainerNode == null:
 			return
+		
+		# Resume dungeon music
+		Audio.MusicSwitch(false)
+		
 		TrainerNode.queue_free()
 
 

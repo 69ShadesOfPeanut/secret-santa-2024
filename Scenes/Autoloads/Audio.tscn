@@ -1,11 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://in7mtj8ki3my"]
+[gd_scene load_steps=14 format=3 uid="uid://in7mtj8ki3my"]
 
 [ext_resource type="Script" path="res://Scripts/AudioHandler.gd" id="1_jvaef"]
+[ext_resource type="AudioStream" uid="uid://bv1gfgi8y0rj" path="res://Resources/Sounds/DungeonMusic/DungeonMusic1.wav" id="2_625dm"]
+[ext_resource type="AudioStream" uid="uid://bh1a77rsiajrc" path="res://Resources/Sounds/DungeonMusic/DungeonMusic2.wav" id="3_rrb2e"]
+[ext_resource type="AudioStream" uid="uid://jbmc2o64b2ay" path="res://Resources/Sounds/DungeonMusic/DungeonMusic3.wav" id="4_hbohq"]
+[ext_resource type="AudioStream" uid="uid://clurmspt0h5di" path="res://Resources/Sounds/DungeonMusic/DungeonMusic4.wav" id="5_bgh48"]
+[ext_resource type="AudioStream" uid="uid://c8fg23olyc3xy" path="res://Resources/Sounds/DungeonMusic/DungeonMusic5.wav" id="6_g08oq"]
+[ext_resource type="AudioStream" uid="uid://cf0ycuom5ffmu" path="res://Resources/Sounds/BattleMusic/BattleMusic1.wav" id="7_7pl7e"]
+[ext_resource type="AudioStream" uid="uid://dh010mc73pl7q" path="res://Resources/Sounds/BattleMusic/BattleMusic2.wav" id="8_s1cm3"]
+[ext_resource type="AudioStream" uid="uid://c8kqw1qr50lln" path="res://Resources/Sounds/BattleMusic/BattleMusic3.wav" id="9_p1bnd"]
+[ext_resource type="AudioStream" uid="uid://bba6vlsyg5tjp" path="res://Resources/Sounds/BattleMusic/BattleMusic4.wav" id="10_k56r2"]
 
 [sub_resource type="AudioStream" id="AudioStream_cmdkk"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tcpg2"]
+streams_count = 5
+stream_0/stream = ExtResource("2_625dm")
+stream_1/stream = ExtResource("3_rrb2e")
+stream_2/stream = ExtResource("4_hbohq")
+stream_3/stream = ExtResource("5_bgh48")
+stream_4/stream = ExtResource("6_g08oq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6rb16"]
+streams_count = 4
+stream_0/stream = ExtResource("7_7pl7e")
+stream_1/stream = ExtResource("8_s1cm3")
+stream_2/stream = ExtResource("9_p1bnd")
+stream_3/stream = ExtResource("10_k56r2")
+
 [node name="Audio" type="Node"]
+process_mode = 3
 script = ExtResource("1_jvaef")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStream_cmdkk")
+bus = &"SFX"
+
+[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_tcpg2")
+bus = &"Music"
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6rb16")
+volume_db = -20.0
