@@ -43,3 +43,6 @@ bus = &"Music"
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6rb16")
 volume_db = -20.0
+
+[connection signal="finished" from="DungeonMusic" to="." method="MusicFinished"]
+[connection signal="finished" from="BattleMusic" to="." method="MusicFinished"]

@@ -2,6 +2,7 @@
 extends Node
 
 # Vars
+var MusicPlaying : String = "Dungeon"
 # Sound effects
 @onready var SFX := {
 	"Click": preload("res://Resources/Sounds/Click.ogg"),
@@ -37,6 +38,18 @@ func MusicSwitch(Battle : bool):
 	if Battle == true:
 		DungeonMusicPlayer.stop()
 		BattleMusicPlayer.play()
+		MusicPlaying = "Battle"
 	else:
 		DungeonMusicPlayer.play()
 		BattleMusicPlayer.stop()
+		MusicPlaying = "Dungeon"
+
+## Called when music is finished
+## Loops the current music
+func MusicFinished() -> void:
+	print("Music finished, playing next song")
+	print("Current playlist is: " + MusicPlaying)
+	if MusicPlaying == "Dungeon":
+		DungeonMusicPlayer.play()
+	else:
+		BattleMusicPlayer.play()
