@@ -111,6 +111,7 @@ func BodyEntered(Body: Node2D) -> void:
 					var SignInstance = SignResource.instantiate()
 					SignInstance.get_node("%Label").text = SignText
 					add_child(SignInstance)
+					SignInstance.move_to_center()
 					get_tree().paused = true
 				elif Trainer == true:
 					# Checks if random monster type is turned on, then assign a random type

@@ -8,3 +8,8 @@ func CloseButton() -> void:
 	
 	get_tree().paused = false
 	queue_free()
+
+## Called when popup is hidden
+## Return the popup
+func PopupHidden() -> void:
+	show()
