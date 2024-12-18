@@ -41,6 +41,8 @@ const SignResource = preload("res://Scenes/Sign.tscn")
 @export var RandomMonsterType : bool
 ## The amount of XP to give
 @export var XPGiven : int
+## The amount of score defeating this trainer gives
+@export var ScoreGiven : int
 
 
 # Function called when a Node2D enters the area
@@ -113,7 +115,7 @@ func BodyEntered(Body: Node2D) -> void:
 					BattleGUI.show()
 					PlayerCharacter.process_mode = PROCESS_MODE_DISABLED
 					
-					BattleGUI.SceneSetup(CharacterStats.Monster, TrainerMonster, XPGiven, self)
+					BattleGUI.SceneSetup(CharacterStats.Monster, TrainerMonster, XPGiven, self, ScoreGiven)
 				InRange = false
 
 

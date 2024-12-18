@@ -48,6 +48,7 @@ Trainer = true
 TrainerMonster = SubResource("Resource_anyiw")
 RandomMonsterType = true
 XPGiven = 100
+ScoreGiven = 10
 
 [node name="Ladder" parent="Interactables" instance=ExtResource("3_2xoqa")]
 position = Vector2(632, 104)

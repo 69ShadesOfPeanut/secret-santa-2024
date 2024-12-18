@@ -5,7 +5,12 @@ extends Control
 @export var MaxUsernameLength : int = 20
 # Nodes
 @onready var UsernameEnterNode : LineEdit = get_node("%UsernameEnter")
+@onready var ScoreLabel : Label = get_node("%ScoreLabel")
 
+
+# Get scene ready when loaded
+func _ready() -> void:
+	ScoreLabel.text = "Your score: " + str(CharacterStats.Score)
 
 # Function called when username gets entered in and user presses enter
 func UsernameEnter() -> void:
@@ -18,5 +23,5 @@ func UsernameEnter() -> void:
 		return
 	
 	# Post score and change scene
-	await Leaderboards.post_guest_score("secret-santa-2024-secret-santa-20-jrSf", CharacterStats.TrainersDefeated, UsernameEnterNode.text)
+	await Leaderboards.post_guest_score("secret-santa-2024-secret-santa-20-jrSf", CharacterStats.Score, UsernameEnterNode.text)
 	get_tree().change_scene_to_file("res://addons/quiver_leaderboards/leaderboard_ui.tscn")

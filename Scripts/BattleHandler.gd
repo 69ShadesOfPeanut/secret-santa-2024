@@ -8,6 +8,7 @@ var EnemyMonster : MonsterStats
 var ActivePlayerTurn : bool = true
 var GameOver : bool = false
 var XPAwarded : int = 0
+var ScoreGiven : int = 0
 var TypeWeakness : Dictionary = {
 	"fire": "water",
 	"water": "grass",
@@ -25,11 +26,12 @@ var TrainerNode : Interactable
 
 
 ## Function that prepares scene for battle
-func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : int, Trainer : Interactable):
+func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : int, Trainer : Interactable, Score : int):
 	PlayerMonster = PMonster
 	EnemyMonster = EMonster
 	XPAwarded = Experience
 	TrainerNode = Trainer
+	ScoreGiven = Score
 	
 	BattleLog.clear()
 	
@@ -70,6 +72,10 @@ func UpdateStats():
 		# Give player character +1 trainer defeat
 		CharacterStats.TrainersDefeated += 1
 		print("Player has now defeated " + str(CharacterStats.TrainersDefeated) + " trainers")
+		
+		# Give player awarded score
+		CharacterStats.Score += ScoreGiven
+		print("Player now has " + str(CharacterStats.Score) + " score!")
 		
 		# Heal the player
 		CharacterStats.Monster.Health = CharacterStats.Monster.MaxHealth
