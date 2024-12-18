@@ -59,6 +59,13 @@ func BodyEntered(Body: Node2D) -> void:
 				print("Player interaction")
 				# Check what action needs to be done
 				if LevelTransfer == true:
+					# Check if there is a next level
+					# If not, bring the user to the game over screen
+					if Level == null:
+						print("No other level found, bringing to game over")
+						get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+						return
+					
 					# Check if the interactable needs to check a status
 					if CheckState == true:
 						# Check what type of check state it needs to be
