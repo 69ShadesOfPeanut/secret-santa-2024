@@ -36,7 +36,7 @@ func SpikeFlicker():
 	
 	# Start warning indicator flash if spike invisible
 	if SpikeSprite.visible == false:
-		print("Starting warning timer")
+		#print("Starting warning timer")
 		WarningTimer.start(WarningFlickerRate)
 	
 	SpikeFlicker()
@@ -44,7 +44,7 @@ func SpikeFlicker():
 ## Handles warning sprite flashing
 func WarningFlicker():
 	if SpikeSprite.visible == true:
-		print("Spike sprite visible. Stopping function")
+		#print("Spike sprite visible. Stopping function")
 		WarningSprite.visible = false
 		return
 	
