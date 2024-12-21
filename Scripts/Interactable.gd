@@ -138,8 +138,14 @@ func BodyEntered(Body: Node2D) -> void:
 						print("Player has already opened chest, stopping action")
 						return
 					
+					# Get gold amount to give player
+					var RandomGold = randi_range(MinScoreChest, MaxScoreChest)
+					
 					# Play chest opening audio
 					Audio.PlaySFX("Chest")
+					
+					# Set chest gold amount label
+					get_node("Label").text = str(RandomGold) + " gold"
 					
 					# Play opening chest animation and wait
 					AnimationPlayerNode.play("ChestOpening")
@@ -147,7 +153,7 @@ func BodyEntered(Body: Node2D) -> void:
 					
 					# Add score
 					randomize()
-					CharacterStats.Score =+ randi_range(MinScoreChest, MaxScoreChest)
+					CharacterStats.Score =+ RandomGold
 					print("Player score is now: " + str(CharacterStats.Score))
 					
 					# Change to having been interacted with
