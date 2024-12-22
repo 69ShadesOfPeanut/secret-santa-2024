@@ -5,13 +5,14 @@ extends CharacterBody2D
 # Nodes
 @onready var MonsterInfoScreen = get_node("%MonsterInfoScreen")
 @onready var HealthLabel : Label = get_node("%HealthLabel")
+@onready var ScoreLabel : Label = get_node("%ScoreLabel")
 @onready var DamageVignette : TextureRect = get_node("%DamageVignette")
 
 ## Sets the player monster to be owned by the player
 func _ready() -> void:
 	CharacterStats.Monster.PlayerMonster = true
 	CharacterStats.Monster.MonsterName = "Player"
-	HealthLabel.text = "Health: " + str(CharacterStats.Health)
+	UpdateGUI()
 
 ## Gets the keys the player is pressing then turns it into directional velocity
 func get_input():
@@ -39,7 +40,7 @@ func TakeDamage(Damage : int):
 	Audio.PlaySFX("Hurt")
 	
 	CharacterStats.Health -= Damage
-	HealthLabel.text = "Health: " + str(CharacterStats.Health)
+	UpdateGUI()
 	
 	# Show vignette for a split second
 	DamageVignette.show()
@@ -51,3 +52,10 @@ func TakeDamage(Damage : int):
 	if CharacterStats.Health <= 0:
 		Audio.PlaySFX("Death")
 		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+
+
+func UpdateGUI():
+	# Update health label
+	HealthLabel.text = "Health: " + str(CharacterStats.Health)
+	# Update score label
+	ScoreLabel.text = "Score: " + str(CharacterStats.Score)

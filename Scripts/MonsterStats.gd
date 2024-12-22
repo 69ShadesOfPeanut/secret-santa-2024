@@ -35,11 +35,11 @@ var Health : int = MaxHealth
 ## Toggle on to have starting stats be random
 @export var RandomiseStats : bool = false
 @export_subgroup("Health Range")
-@export_range(1, 20) var MinHealthRange : int
-@export_range(1, 20) var MaxHealthRange : int
+@export_range(1, 500) var MinHealthRange : int
+@export_range(1, 500) var MaxHealthRange : int
 @export_subgroup("Attack Range")
-@export_range(1, 20) var MinAttackRange : int
-@export_range(1, 20) var MaxAttackRange : int
+@export_range(1, 500) var MinAttackRange : int
+@export_range(1, 500) var MaxAttackRange : int
 
 
 # Randomise stats if randomise stat is turned on
@@ -53,6 +53,12 @@ func RandomiseStatsFunction():
 
 # Function that adds experience
 func AddXP(XPGiven : int):
+	# For checking later if additional xp needs to be granted
+	var XPDifference = ExperienceLevelUp - Experience
+	var XPResult = XPGiven - XPDifference
+	print("XP Result: " + str(XPResult))
+	
+	
 	Experience += XPGiven
 	print("Current experience is: " + str(Experience))
 	
@@ -65,6 +71,11 @@ func AddXP(XPGiven : int):
 		ExperienceLevelUp += 100
 		Experience = 0
 		print("Current level is: " + str(Level) + "\nCurrent experience to level up is: " + str(ExperienceLevelUp))
+		
+		# Check if additional xp needs to be granted
+		if XPResult > 0:
+			print("More XP than 0, granting additional XP")
+			AddXP(XPResult) 
 		
 		return true
 	return false

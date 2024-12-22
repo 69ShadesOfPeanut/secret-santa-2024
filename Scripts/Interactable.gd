@@ -156,6 +156,9 @@ func BodyEntered(Body: Node2D) -> void:
 					CharacterStats.Score =+ RandomGold
 					print("Player score is now: " + str(CharacterStats.Score))
 					
+					# Update player GUI
+					PlayerCharacter.UpdateGUI()
+					
 					# Change to having been interacted with
 					InteractedWith = true
 				InRange = false

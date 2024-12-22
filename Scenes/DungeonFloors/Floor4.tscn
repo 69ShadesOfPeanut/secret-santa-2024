@@ -12,7 +12,7 @@
 script = ExtResource("7_s86ib")
 MonsterType = "fire"
 MaxHealth = 25
-Attack = 5
+Attack = 9
 RandomiseStats = false
 MinHealthRange = 0
 MaxHealthRange = 0
@@ -143,6 +143,7 @@ position = Vector2(392, 456)
 [node name="Ladder" parent="Interactables" instance=ExtResource("2_grli0")]
 position = Vector2(728, 552)
 LevelTransfer = true
+Level = "res://Scenes/DungeonFloors/Floor5.tscn"
 CheckState = true
 CheckInt = true
 CheckIntValue = 4

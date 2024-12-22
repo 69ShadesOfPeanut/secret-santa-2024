@@ -64,6 +64,12 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Health: X"
 
+[node name="ScoreLabel" type="Label" parent="GUI/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Score: X"
+
 [node name="DamageVignette" type="TextureRect" parent="GUI"]
 unique_name_in_owner = true
 visible = false

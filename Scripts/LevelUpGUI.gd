@@ -29,13 +29,17 @@ func ButtonPress(ButtonStat : String):
 	# Check stat then increase it
 	match  ButtonStat:
 		"Health":
-			PlayerMonster.MaxHealth += 1
+			var RandomHealthUpgrade = randi_range(1, 5)
+			
+			PlayerMonster.MaxHealth += RandomHealthUpgrade
 			print("Player health is now: " + str(PlayerMonster.Health))
 			
 			# Heal the player
 			CharacterStats.Monster.Health = CharacterStats.Monster.MaxHealth
 		"Attack":
-			PlayerMonster.Attack += 1
+			var RandomAttackUpgrade = randi_range(1, 5)
+			
+			PlayerMonster.Attack += RandomAttackUpgrade
 			print("Player attack is now: " + str(PlayerMonster.Attack))
 	PlayerMonster.SkillPoints -= 1
 	
