@@ -153,7 +153,7 @@ func BodyEntered(Body: Node2D) -> void:
 					
 					# Add score
 					randomize()
-					CharacterStats.Score =+ RandomGold
+					CharacterStats.Score += RandomGold
 					print("Player score is now: " + str(CharacterStats.Score))
 					
 					# Update player GUI

@@ -109,6 +109,9 @@ func FinishButton():
 	get_node("Camera2D").enabled = false
 	hide()
 	
+	# Update player GUI
+	PlayerCharacter.UpdateGUI()
+	
 	# Resume dungeon music
 	Audio.MusicSwitch(false)
 	
