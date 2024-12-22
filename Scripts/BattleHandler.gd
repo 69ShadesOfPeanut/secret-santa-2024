@@ -23,6 +23,8 @@ var TurnNumber : int = 0
 @onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
 @onready var BattleLog : RichTextLabel = get_node("%BattleLog")
 @onready var BattleResults : CenterContainer = get_node("%BattleResults")
+@onready var YourType : Label = get_node("%YourType")
+@onready var EnemyType : Label = get_node("%EnemyType")
 var TrainerNode : Interactable
 
 
@@ -35,6 +37,10 @@ func SceneSetup(PMonster : MonsterStats, EMonster : MonsterStats, Experience : i
 	ScoreGiven = Score
 	
 	BattleLog.clear()
+	
+	# Set enemy type labels
+	YourType.text = "Your type: " + PlayerMonster.MonsterType
+	EnemyType.text = "Enemy type: " + EnemyMonster.MonsterType
 	
 	await UpdateStats()
 	
