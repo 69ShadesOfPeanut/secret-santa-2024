@@ -50,5 +50,5 @@ alignment = 1
 layout_mode = 2
 text = "Submit score"
 
-[connection signal="text_submitted" from="MarginContainer/VBoxContainer/UsernameEnter" to="." method="UsernameEnter"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/UsernameEnter" to="." method="UsernameLineEnter"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="UsernameEnter"]

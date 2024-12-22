@@ -28,3 +28,8 @@ func UsernameEnter() -> void:
 	# Post score and change scene
 	await Leaderboards.post_guest_score("secret-santa-2024-secret-santa-20-jrSf", CharacterStats.Score, UsernameEnterNode.text)
 	get_tree().change_scene_to_file("res://addons/quiver_leaderboards/leaderboard_ui.tscn")
+
+
+# Function called when user presses enter on button as UsernameEnter() requires 0 args
+func UsernameLineEnter(new_text: String) -> void:
+	UsernameEnter()
