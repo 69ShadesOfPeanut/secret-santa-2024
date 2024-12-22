@@ -53,6 +53,11 @@ const Chest1 = preload("res://Resources/Assets/Chest/Chest1.png")
 @export var MinScoreChest : int
 ## The max score given by this chest
 @export var MaxScoreChest : int
+@export_subgroup("HealthPotion")
+## Toggle to set if this interactable will be a health potion
+@export var HealthPotion : bool
+## How much health to recover
+@export var HealthRecover : int
 
 
 # Get interactable ready
@@ -161,6 +166,19 @@ func BodyEntered(Body: Node2D) -> void:
 					
 					# Change to having been interacted with
 					InteractedWith = true
+				elif HealthPotion == true:
+					# Give player health
+					CharacterStats.Health += HealthRecover
+					
+					# Make sure player doesn't go over 100 health
+					if CharacterStats.Health > 100:
+						CharacterStats.Health = 100
+					
+					# Update player GUI
+					PlayerCharacter.UpdateGUI()
+					
+					# Delete self
+					queue_free()
 				InRange = false
 
 
