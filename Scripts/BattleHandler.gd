@@ -22,6 +22,7 @@ var TurnNumber : int = 0
 @onready var DefendedEnemy : Label = get_node("%DefendedEnemy")
 @onready var PlayerCharacter : CharacterBody2D = get_node("%PlayerCharacter")
 @onready var BattleLog : RichTextLabel = get_node("%BattleLog")
+@onready var BattleResults : CenterContainer = get_node("%BattleResults")
 var TrainerNode : Interactable
 
 
@@ -68,14 +69,6 @@ func UpdateStats():
 		if get_parent().name == "TestMonsterBattle":
 			return
 		
-		# Add experience and check if level up is required
-		var LevelUp = PlayerMonster.AddXP(XPAwarded)
-		if LevelUp == true:
-			var LevelUpGUIInstance : Window = LevelUpGUI.instantiate()
-			add_child(LevelUpGUIInstance)
-			LevelUpGUIInstance.move_to_center()
-			LevelUpGUIInstance.SetUp(PlayerMonster)
-		
 		# Give player character +1 trainer defeat
 		CharacterStats.TrainersDefeated += 1
 		print("Player has now defeated " + str(CharacterStats.TrainersDefeated) + " trainers")
@@ -87,22 +80,33 @@ func UpdateStats():
 		# Heal the player
 		CharacterStats.Monster.Health = CharacterStats.Monster.MaxHealth
 		
-		# Unpause character and resume camera control
-		PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
-		get_node("Camera2D").enabled = false
-		hide()
-		
 		# Checks if theres a trainer node
 		# If there is one, then free the trainer node so that you can't rechallenge
 		if TrainerNode == null:
 			return
 		
-		# Resume dungeon music
-		Audio.MusicSwitch(false)
-		
-		TrainerNode.queue_free()
+		# Show the battle results
+		BattleResults.show()
 
-
+## Called when the player confirms ending the battle
+func FinishButton():
+	# Add experience and check if level up is required
+	var LevelUp = PlayerMonster.AddXP(XPAwarded)
+	if LevelUp == true:
+		var LevelUpGUIInstance : Window = LevelUpGUI.instantiate()
+		add_child(LevelUpGUIInstance)
+		LevelUpGUIInstance.move_to_center()
+		LevelUpGUIInstance.SetUp(PlayerMonster)
+	
+	# Unpause character and resume camera control
+	PlayerCharacter.process_mode = PROCESS_MODE_INHERIT
+	get_node("Camera2D").enabled = false
+	hide()
+	
+	# Resume dungeon music
+	Audio.MusicSwitch(false)
+	
+	TrainerNode.queue_free()
 
 
 ## Function to handle player turn
